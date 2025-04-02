@@ -1,7 +1,8 @@
 .filters-sidebar {
-  width: 50%;
+  width: 10%;
   padding: 16px;
   border-radius: 8px;
+  background-color: aqua;
 }
 
 .filters-sidebar h2 {

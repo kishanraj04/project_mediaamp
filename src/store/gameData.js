@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
-    allgames:[]
+    allgames:[],
+    totalData:0
 }
 
 const gameSlice = createSlice({
@@ -10,9 +11,13 @@ const gameSlice = createSlice({
     reducers:{
         setAllGames:(state,action)=>{
             state.allgames = action?.payload?.data 
+        },
+        setTotalGames:(state,action)=>{
+            console.log(action?.payload?.totalGames);
+            state.totalData = action?.payload?.totalGames
         }
     }
 })
 
 export default gameSlice.reducer
-export const {setAllGames} = gameSlice.actions
+export const {setAllGames,setTotalGames} = gameSlice.actions

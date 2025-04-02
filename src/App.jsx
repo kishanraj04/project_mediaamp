@@ -5,7 +5,7 @@ import Header from './components/HomeComponent/Header.jsx'
 import SideBar from './components/HomeComponent/SideBar.jsx'
 import { apiCalling } from './api/apiCalling.js'
 import { useDispatch } from 'react-redux'
-import { setAllGames } from './store/gameData.js'
+import { setAllGames, setTotalGames } from './store/gameData.js'
 import { Outlet } from 'react-router'
 import '../src/components/style/app.css'
 function App() {
@@ -19,6 +19,8 @@ function App() {
       };
 
       const resp = await apiCalling(options)
+      console.log(resp);
+      dispatch(setTotalGames({totalGames:resp?.data?.count}))
       dispatch(setAllGames({data:resp?.data?.results}))
     })()
   },[])

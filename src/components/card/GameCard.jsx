@@ -2,7 +2,6 @@ import React from "react";
 import '../style/card.css'
 
 const GameCard = ({ game }) => {
-    console.log(game);
   return (
     <div className="game-card">
       <img className="game-image" src={game?.background_image} alt={game.title} />
