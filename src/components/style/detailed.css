@@ -1,0 +1,59 @@
+.detailed-container{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.detailed-container .game-image-container
+{
+    background-color:aqua;
+    height: 100%;
+    width: 50%;
+}
+
+.image-content-container{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.image-content-container .content{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.detailed-container .game-image-container .game-image 
+{
+    height:100%;
+    width: 100%;
+}
+
+.screenshorts{
+    height: 20%;
+    width: 100%;
+    background-color: blue;
+    display: flex;
+    gap: 10px;
+    overflow-x: scroll;
+}
+
+.screenshorts img 
+{
+    height: 100%;
+    width: 150px;
+    object-fit: contain;
+}
+
+.detailed-container .allgames
+{
+    margin-top: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,10 +1,13 @@
 import React from "react";
 import '../style/card.css'
+import { Link } from "react-router";
 
 const GameCard = ({ game }) => {
   return (
     <div className="game-card">
+      <Link to={`/${game?.name}`} state={game}>
       <img className="game-image" src={game?.background_image} alt={game.title} />
+      </Link>
       <h2 className="game-title">{game?.name}</h2>
       <p className="game-relesed">Released : {game?.released}</p>
       
