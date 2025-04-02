@@ -5,11 +5,16 @@ import { createBrowserRouter } from 'react-router'
 import { RouterProvider } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import store from './store/configure.js'
+import Home from './pages/Home.jsx'
 
 
 const routes = createBrowserRouter([{ 
   path:'/',
-  element:<App/>
+  element:<App/>,
+  children:[{
+    path:'/',
+    element:<Home/>
+  }]
 }])
 
 createRoot(document.getElementById('root')).render(

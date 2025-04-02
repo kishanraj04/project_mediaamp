@@ -6,7 +6,8 @@ import SideBar from './components/HomeComponent/SideBar.jsx'
 import { apiCalling } from './api/apiCalling.js'
 import { useDispatch } from 'react-redux'
 import { setAllGames } from './store/gameData.js'
-
+import { Outlet } from 'react-router'
+import '../src/components/style/app.css'
 function App() {
   const [count, setCount] = useState(0)
   const dispatch = useDispatch()
@@ -25,7 +26,11 @@ function App() {
   return (
     <>
        <Header/>
+       
+       <div className='home-div'>
        <SideBar/>
+       <Outlet/>
+       </div>
     </>
   )
 }

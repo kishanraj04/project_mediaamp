@@ -1,25 +1,18 @@
 import React from "react";
-import "../styles/GameCard.css"; // Import the CSS file
+import '../style/card.css'
 
 const GameCard = ({ game }) => {
+    console.log(game);
   return (
-    <>
-    hii
-    </>
-    // <div className="game-card">
-    //   <img className="game-image" src={game.image} alt={game.title} />
-    //   <h2 className="game-title">{game.title}</h2>
-    //   <p className="game-description">{game.description}</p>
+    <div className="game-card">
+      <img className="game-image" src={game?.background_image} alt={game.title} />
+      <h2 className="game-title">{game?.name}</h2>
+      <p className="game-relesed">Released : {game?.released}</p>
       
-    //   <div className="game-tags">
-    //     {game.tags.map((tag, index) => (
-    //       <span key={index} className="tag">{tag}</span>
-    //     ))}
-    //   </div>
       
-    //   <p className="game-category">Category: {game.category}</p>
-    //   <p className="game-rating">Rating: {game.rating}/5</p>
-    // </div>
+      <p className="game-category">Reviews: {game?.reviews_count}</p>
+      <p className="game-rating">Rating: {game?.rating}/5</p>
+    </div>
   );
 };
 
