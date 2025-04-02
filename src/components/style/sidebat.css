@@ -1,0 +1,40 @@
+.filters-sidebar {
+    width: 15%;
+    height: 92vh;
+    padding: 18px;
+    background-color: #f4f4f4;
+    border-right: 1px solid #ddd;
+    overflow-y: auto;
+  }
+  
+  .filters-sidebar h2 {
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+  
+  .filters-sidebar label {
+    display: block;
+    font-size: 14px;
+    margin: 8px 0;
+    font-weight: bold;
+  }
+  
+  .filters-sidebar select,
+  .filters-sidebar input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 4px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .filters-sidebar input[type="number"] {
+    -moz-appearance: textfield;
+  }
+  
+  .filters-sidebar input[type="number"]::-webkit-inner-spin-button, 
+  .filters-sidebar input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
