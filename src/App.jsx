@@ -4,10 +4,12 @@ import viteLogo from '/vite.svg'
 import Header from './components/HomeComponent/Header.jsx'
 import SideBar from './components/HomeComponent/SideBar.jsx'
 import { apiCalling } from './api/apiCalling.js'
+import { useDispatch } from 'react-redux'
+import { setAllGames } from './store/gameData.js'
 
 function App() {
   const [count, setCount] = useState(0)
-
+  const dispatch = useDispatch()
   useEffect(()=>{
     (async()=>{
       const options = {
@@ -16,6 +18,7 @@ function App() {
       };
 
       const resp = await apiCalling(options)
+      dispatch(setAllGames({data:resp?.data?.results}))
     })()
   },[])
 

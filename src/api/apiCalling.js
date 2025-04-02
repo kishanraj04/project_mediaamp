@@ -7,7 +7,7 @@ export const apiCalling =async  (option)=>
     try
     {
         const response = await axios(option)
-        console.log(response);
+        return response
         
     }catch(error)
     {
