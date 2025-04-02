@@ -11,6 +11,7 @@
   top: 0;
   left: 0;
   z-index: 1000;
+  user-select: none;
 }
 
 .logo {
@@ -22,6 +23,9 @@
   position: relative;
   width: 30%;
   display: flex;
+  gap: 10px;
+  background-color: white;
+  border-left:0px;
   align-items: center;
 }
 
@@ -30,15 +34,18 @@
   padding: 8px 8px 8px 40px;
   border-radius: 4px;
   border: 1px solid #ccc;
+  border-right: 0px;
   outline: none;
+  border-top-left-radius: 20px;  
+  border-bottom-left-radius: 20px;
 }
 
 .search-icon {
-  position: absolute;
+  /* position: absolute;
   left: 10px;
   top: 50%;
-  transform: translateY(-50%);
-  color: #555;
+  transform: translateY(-50%); */
+  color: #007bff;
 }
 
 .library-section {
