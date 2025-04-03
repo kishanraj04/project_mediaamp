@@ -7,6 +7,8 @@ import { Provider } from "react-redux";
 import store from "./store/configure.js";
 import Home from "./pages/Home.jsx";
 import DetailedPage from "./pages/DetailedPage.jsx";
+import SearchinPage from "./pages/SearchinPage.jsx";
+import Header from "./components/HomeComponent/Header.jsx";
 
 const routes = createBrowserRouter([
   {
@@ -23,6 +25,14 @@ const routes = createBrowserRouter([
       }
     ],
   },
+  
+  {
+    path:"/searching-page",
+    element:<>
+    <Header/>
+    <SearchinPage/>
+    </>
+  }
 ]);
 
 createRoot(document.getElementById("root")).render(

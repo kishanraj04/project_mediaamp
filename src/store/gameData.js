@@ -10,6 +10,7 @@ const gameSlice = createSlice({
     initialState,
     reducers:{
         setAllGames:(state,action)=>{
+            console.log("a ",action.payload);
             state.allgames = action?.payload?.data 
         },
         setTotalGames:(state,action)=>{
