@@ -1,7 +1,10 @@
 import { useState } from "react";
 import '../style/sidebat.css'
+import { filterGame } from "../../api/filterApi";
+import { useDispatch } from "react-redux";
+import { setAllGames } from "../../store/gameData";
 
-const SideBar = ({ onFilterChange }) => {
+const SideBar = () => {
   const [filters, setFilters] = useState({
     category: "",
     tags: "",
@@ -11,28 +14,39 @@ const SideBar = ({ onFilterChange }) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFilters((prevFilters) => {
-      const updatedFilters = { ...prevFilters, [name]: value };
-      onFilterChange(updatedFilters);
-      return updatedFilters;
-    });
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      [name]: value
+    }));
   };
+
+  const dispatch = useDispatch()
+  const handleFilter = async()=>{
+    const filterData =(await filterGame(filters))?.data?.results
+    dispatch(setAllGames({data:filterData}))
+    if(filterData?.length>50){
+      const newGameData = filterData.slice(0,50)
+      dispatch(setAllGames({data:newGameData}))
+    }
+  }
 
   return (
     <aside className="filters-sidebar">
       <h2>Filters</h2>
-      
-      <label>
+
+      <label className="filter-label">
         Category:
         <select name="category" value={filters.category} onChange={handleChange}>
           <option value="">All</option>
           <option value="action">Action</option>
           <option value="adventure">Adventure</option>
-          <option value="rpg">RPG</option>
+          <option value="indie">Indie</option>
+          <option value="puzzle">Puzzle</option>
+          <option value="platformer">Platformer</option>
         </select>
       </label>
 
-      <label>
+      <label className="filter-label">
         Tags:
         <input
           type="text"
@@ -43,10 +57,10 @@ const SideBar = ({ onFilterChange }) => {
         />
       </label>
 
-      <label>
+      <label className="filter-label">
         Release Year:
         <input
-          type="number"
+          type="date"
           name="releaseYear"
           value={filters.releaseYear}
           onChange={handleChange}
@@ -54,15 +68,19 @@ const SideBar = ({ onFilterChange }) => {
         />
       </label>
 
-      <label>
-        Popularity:
+      <label className="filter-label">
+        Rating:
         <select name="popularity" value={filters.popularity} onChange={handleChange}>
           <option value="">All</option>
-          <option value="high">High</option>
-          <option value="medium">Medium</option>
-          <option value="low">Low</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
         </select>
       </label>
+
+      <button className="filter-button" onClick={handleFilter}>Filter</button>
     </aside>
   );
 };

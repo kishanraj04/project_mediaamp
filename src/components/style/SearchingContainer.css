@@ -1,0 +1,25 @@
+.searching-container{
+    display: flex;
+    height: auto;
+    width: 100%;
+    margin-top: 8%;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.searching-container .game-card
+{
+    height: 80%;
+}
+
+.searching-container .game-card img
+{ 
+  height: 90%;  
+}
+
+.searching-container .game-card .content
+{
+    height: 100%;
+}
