@@ -9,6 +9,7 @@ import Home from "./pages/Home.jsx";
 import DetailedPage from "./pages/DetailedPage.jsx";
 import SearchinPage from "./pages/SearchinPage.jsx";
 import Header from "./components/HomeComponent/Header.jsx";
+import FavouritePage from "./pages/FavouritePage.jsx";
 
 const routes = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const routes = createBrowserRouter([
       {
         path:"/:game-name",
         element:<DetailedPage/>
+      },
+      {
+        path:"/favourite",
+        element:<FavouritePage/>
       }
     ],
   },

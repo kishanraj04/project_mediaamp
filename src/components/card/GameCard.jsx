@@ -1,6 +1,7 @@
 import React from "react";
 import '../style/card.css'
 import { Link } from "react-router";
+import { CiHeart } from "react-icons/ci";
 
 const GameCard = ({ game }) => {
   return (
@@ -12,8 +13,13 @@ const GameCard = ({ game }) => {
       <p className="game-relesed">Released : {game?.released}</p>
       
       
+      <div className="heart-container">
+      <div className="content">
       <p className="game-category">Reviews: {game?.reviews_count}</p>
       <p className="game-rating">Rating: {game?.rating}/5</p>
+      </div>
+      <CiHeart size={'30px'} color="red"/>
+      </div>
     </div>
   );
 };

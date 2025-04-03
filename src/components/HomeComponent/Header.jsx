@@ -1,21 +1,18 @@
 import { useState } from "react";
-import { Bookmark, Search } from "lucide-react";
+import { Bookmark,  Search } from "lucide-react";
+import { IoMdBookmark } from "react-icons/io";
 import "../style/header.css";
 import { apiCalling } from "../../api/apiCalling";
 import { useDispatch, useSelector } from "react-redux";
 import { setAllGames } from "../../store/gameData";
 import { useNavigate } from "react-router";
-
+import { Link } from "react-router";
 const Header = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const dispatch = useDispatch()
   const navigate = useNavigate()
   
-  // const handleSearch = async(e)=>{
-  //   // const option = {method:"GET",url:`https://api.rawg.io/api/games?key=6d633194af394581991e28eb88ce8c1d&search=${searchTerm}`}
-  //   // const resp = await apiCalling(option)
-  //   dispatch(setAllGames({data:resp?.data?.results}))
-  // }
+
 
   return (
     <header className="header">
@@ -37,10 +34,9 @@ const Header = () => {
       </div>
 
       <div className="library-section">
-        <button className="library-btn">
-          <Bookmark size={18} />
-          <span>Library</span>
-        </button>
+        <Link to="/favourite" className="library-btn">
+          <IoMdBookmark size={18}/>
+        </Link>
       </div>
     </header>
   );
