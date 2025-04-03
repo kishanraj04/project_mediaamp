@@ -3,7 +3,7 @@ import '../style/card.css'
 import { Link } from "react-router";
 import { CiHeart } from "react-icons/ci";
 import { useDispatch, useSelector } from "react-redux";
-import { addToFavourite } from "../../store/favoutrite";
+import { addToFavourite, removeFromFavourite } from "../../store/favoutrite";
 import { isFavourite } from "../../helper/checkFavouriteStatus";
 import { IoIosHeart } from "react-icons/io";
 
@@ -13,6 +13,10 @@ const GameCard = ({ game }) => {
   const gameData = useSelector((state) => state?.favourite?.favouriteGame);
   const handleAddFavourite = ()=>{
        dispatch(addToFavourite({favouriteGame:game}))
+  }
+
+  const hendleRemoveToFavourite = ()=>{
+    dispatch(removeFromFavourite({id:game?.id}))
   }
 
   return (
@@ -30,7 +34,7 @@ const GameCard = ({ game }) => {
       <p className="game-rating">Rating: {game?.rating}/5</p>
       </div>
       {
-        isFavourite(game,gameData) ?<IoIosHeart size={'30px'} color="red" /> : <CiHeart size={'30px'} color="red" onClick={handleAddFavourite}/>
+        isFavourite(game,gameData) ?<IoIosHeart size={'30px'} color="red" onClick={hendleRemoveToFavourite}/> : <CiHeart size={'30px'} color="red" onClick={(game)=>handleAddFavourite(game)}/>
       }
       
       </div>
