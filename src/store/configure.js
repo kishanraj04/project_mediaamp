@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import  gameReducser  from "./gameData";
+import { favouriteReducer } from "./favoutrite";
 
 const store = configureStore({
     reducer:{
-        game:gameReducser
+        game:gameReducser,
+        favourite:favouriteReducer
     }
 })
 

@@ -2,8 +2,19 @@ import React from "react";
 import '../style/card.css'
 import { Link } from "react-router";
 import { CiHeart } from "react-icons/ci";
+import { useDispatch, useSelector } from "react-redux";
+import { addToFavourite } from "../../store/favoutrite";
+import { isFavourite } from "../../helper/checkFavouriteStatus";
+import { IoIosHeart } from "react-icons/io";
 
 const GameCard = ({ game }) => {
+
+  const dispatch = useDispatch()
+  const gameData = useSelector((state) => state?.favourite?.favouriteGame);
+  const handleAddFavourite = ()=>{
+       dispatch(addToFavourite({favouriteGame:game}))
+  }
+
   return (
     <div className="game-card">
       <Link to={`/${game?.name}`} state={game}>
@@ -18,7 +29,10 @@ const GameCard = ({ game }) => {
       <p className="game-category">Reviews: {game?.reviews_count}</p>
       <p className="game-rating">Rating: {game?.rating}/5</p>
       </div>
-      <CiHeart size={'30px'} color="red"/>
+      {
+        isFavourite(game,gameData) ?<IoIosHeart size={'30px'} color="red" /> : <CiHeart size={'30px'} color="red" onClick={handleAddFavourite}/>
+      }
+      
       </div>
     </div>
   );
