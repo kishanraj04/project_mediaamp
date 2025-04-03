@@ -3,6 +3,7 @@ import '../style/sidebat.css'
 import { filterGame } from "../../api/filterApi";
 import { useDispatch } from "react-redux";
 import { setAllGames } from "../../store/gameData";
+import { useNavigate } from "react-router";
 
 const SideBar = () => {
   const [filters, setFilters] = useState({
@@ -12,6 +13,7 @@ const SideBar = () => {
     popularity: "",
   });
 
+  const navigate = useNavigate()
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFilters((prevFilters) => ({
@@ -22,6 +24,7 @@ const SideBar = () => {
 
   const dispatch = useDispatch()
   const handleFilter = async()=>{
+    navigate('/')
     const filterData =(await filterGame(filters))?.data?.results
     dispatch(setAllGames({data:filterData}))
     if(filterData?.length>50){

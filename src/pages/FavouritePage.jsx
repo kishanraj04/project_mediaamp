@@ -1,8 +1,11 @@
 import React from 'react'
+import FavouriteCard from '../components/card/FavouritePage'
 
 function FavouritePage() {
   return (
-    <div>FavouritePage</div>
+    <>
+    <FavouriteCard/>
+    </>
   )
 }
 
