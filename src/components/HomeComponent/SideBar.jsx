@@ -1,7 +1,7 @@
 import { useState } from "react";
 import '../style/sidebat.css'
 import { filterGame } from "../../api/filterApi";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setAllGames } from "../../store/gameData";
 import { useNavigate } from "react-router";
 
@@ -12,6 +12,8 @@ const SideBar = () => {
     releaseYear: "",
     popularity: "",
   });
+
+  const toggle = useSelector((state) => state?.localVariable?.sideToggle);
 
   const navigate = useNavigate()
   const handleChange = (e) => {

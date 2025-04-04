@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Star } from "lucide-react";
 import { useLocation } from "react-router";
 import "../components/style/detailed.css";
+import "../components/style/card.css";
 import GameCard from "../components/card/GameCard";
 import { useSelector } from "react-redux";
 

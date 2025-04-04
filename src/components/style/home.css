@@ -1,27 +1,39 @@
-.main-container-home{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-   
+.main-container-home {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: aquamarine;
+  gap: 15px;
 }
 
-.game-container
-{
-    display: flex;
-    flex-direction: column;
-    background-color: aquamarine;
-    height: 100%;
-    width: 85%;
-    
+.game-container .equal {
+  padding: 10px;
+
 }
 
-.pagination{
-    margin-top: 5%;
-    /* padding: 10px; */
-    width:100%;
-    display: flex;
-    position:relative;
-    bottom: 0px;
+.game-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 85%;
+}
+
+.pagination {
+  margin-top: 5%;
+  /* padding: 10px; */
+  width: 100%;
+  display: flex;
+  position: relative;
+  bottom: 0px;
+}
+
+@media (max-width: 700px) {
+  /* .game-container {
+    width: 100%;
+  }
+
+  .game-container .equal{
+    display: block;
+  } */
 }
