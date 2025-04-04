@@ -30,12 +30,12 @@ const Header = () => {
           }}
           className="search-input"
         />
-        <Search className="search-icon" size={18}/>
+        <Search className="search-icon" color="white" size={"32px"}/>
       </div>
 
       <div className="library-section">
         <Link to="/favourite" className="library-btn">
-          <IoMdBookmark size={18}/>
+          <IoMdBookmark size={"30px"} color="white"/>
         </Link>
       </div>
     </header>

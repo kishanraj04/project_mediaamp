@@ -5,20 +5,22 @@ import "../../src/components/style/home.css";
 import PaginationComp from "../components/pagination/Pagination";
 function Home() {
   const gameData = useSelector((state) => state?.game?.allgames);
-  
+
   return (
     <>
-      {
-        !gameData?<h1>....loading</h1>:<div className="game-container">
-        <div className="main-container-home">
-          {gameData && gameData.map((item) => <GameCard game={item} />)}
-        </div>
+      {!gameData ? (
+        <h1>....loading</h1>
+      ) : (
+        <div className="game-container">
+          <div className="main-container-home">
+            {gameData && gameData.map((item) => <GameCard game={item} />)}
+          </div>
 
-        <div className="pagination">
-          <PaginationComp />
+          <div className="pagination">
+            <PaginationComp />
+          </div>
         </div>
-      </div>
-      }
+      )}
     </>
   );
 }
