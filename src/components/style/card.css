@@ -1,78 +1,70 @@
 .game-card {
-  width: 250px;
-  height: 15%;
-  background: #1e1e1e;
-  color: white;
-  border-radius: 10px;
+  background-color: #ffffff;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  padding: 12px;
-  transition: transform 0.3s ease-in-out;
-}
-
-.heart-container {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 300px;
+  width: 100%;
+  padding: 16px;
   display: flex;
-  justify-content: space-around;
-
-  align-items: center;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .game-card:hover {
-  transform: scale(1.05);
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
-.game-image {
+/* Game Image */
+.game-card .game-image {
   width: 100%;
-  height: 150px;
+  height: 200px;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 12px;
 }
 
+/* Title */
 .game-title {
-  font-size: 20px;
-  font-weight: bold;
-  margin-top: 10px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #222;
+  margin: 0;
 }
 
+/* Release Info */
 .game-relesed {
-  font-size: 14px;
-  color: #ccc;
-  margin-top: 8px;
-  height: 60px;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  font-size: 0.95rem;
+  color: #666;
 }
 
-.game-category {
-  font-size: 14px;
-  margin-top: 8px;
-  color: #ddd;
-}
-
-.game-rating {
-  font-size: 16px;
-  font-weight: bold;
-  margin-top: 8px;
-  color: #ffcc00;
-}
-
-.out-let {
+/* Ratings & Heart */
+.heart-container {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
 }
 
-@media (max-width: 685px) {
-  .game-card {
-    width: 40%;
-    height: 10%;
-  }
-
+.heart-container .content {
+  display: flex;
+  flex-direction: column;
 }
 
-@media (min-width: 685px) {
-  .game-card {
-    width: 15%;
-    height: 25%;
-  }
-
+.game-category,
+.game-rating {
+  font-size: 0.9rem;
+  color: #444;
 }
 
+/* Heart Icon */
+.heart-container svg {
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.heart-container svg:hover {
+  transform: scale(1.25);
+  color: #ff4d4d;
+}

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import Header from './components/HomeComponent/Header.jsx'
@@ -8,10 +8,22 @@ import { useDispatch } from 'react-redux'
 import { setAllGames, setTotalGames } from './store/gameData.js'
 import { Outlet } from 'react-router'
 import '../src/components/style/app.css'
+import { ToastContainer, toast } from 'react-toastify';
+import { AppContext } from './context/AppContext.jsx'
 function App() {
   const [count, setCount] = useState(0)
+  const {authToken} = useContext(AppContext)
   const dispatch = useDispatch()
+
   useEffect(()=>{
+    if(authToken)
+      {
+        toast.success("login success")
+      }
+  },[])
+  
+  useEffect(()=>{
+    
     (async()=>{
       const options = {
         method: "GET",
@@ -26,7 +38,7 @@ function App() {
   },[])
 
   return (
-    <>
+    <> <ToastContainer />
        <Header/>
        
        <div className='home-div'>

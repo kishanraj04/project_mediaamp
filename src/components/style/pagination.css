@@ -1,26 +1,63 @@
-.swiper {
-    width: 100%;
-    height: 100%;
-  }
-  
-  .swiper-slide {
-    text-align: center;
-    font-size: 18px;
-  
-    /* Center slide text vertically */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
+.pagination-button {
+  background-color: transparent;
+  color: #007bff;
+  border-radius: 5px;
+  padding: 8px 12px;
+  border: 1px solid #007bff;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease-in-out;
+}
 
-.mySwiper{
-  width: 80%;
+.pagination-button:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.pagination-button.active {
+  background-color: #007bff;
+  color: white;
+}
+.mySwiper .swiper-slide {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Swiper customization */
+.mySwiper {
+  padding: 20px 10px;
+  margin-left: 60%;
+  max-width: 60%;
+}
+
+/* Responsive for tablets */
+@media (max-width: 768px) {
+  .mySwiper {
+    padding: 16px 0;
+  }
+
+  .pagination-button {
+    padding: 6px 10px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 710px) {
+  .mySwiper {
+    margin-left: 40%;
+    max-width: 80%;
+  }
+  
+}
+
+/* Responsive for small phones */
+@media (max-width: 480px) {
+  .pagination-button {
+    padding: 5px 8px;
+    font-size: 13px;
+  }
+
+  .mySwiper {
+    space-between: 2px;
+  }
 }

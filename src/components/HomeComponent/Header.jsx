@@ -1,42 +1,56 @@
-import { useState } from "react";
-import { Bookmark,  Search } from "lucide-react";
+import { useContext, useState } from "react";
+import { Bookmark, Search } from "lucide-react";
 import { IoMdBookmark } from "react-icons/io";
 import "../style/header.css";
-import { apiCalling } from "../../api/apiCalling";
-import { useDispatch, useSelector } from "react-redux";
-import { setAllGames } from "../../store/gameData";
-import { useNavigate } from "react-router";
-import { Link } from "react-router";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useUser, UserButton, SignInButton } from "@clerk/clerk-react"; // Clerk Auth Imports
+import { AppContext } from "../../context/AppContext";
+import { toast } from "react-toastify";
+
 const Header = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const { user } = useUser();
+  const {authToken} = useContext(AppContext)
+
+  const handleLibaray = ()=>{
+    if(!authToken)
+    {
+      toast.error("please login")
+      return
+    }
+    navigate('/favourite')
+  }
   
-
-
   return (
     <header className="header">
-      <div className="logo">GameZone</div>
+      <div className="logo" onClick={()=> navigate('/')}>GameZone</div>
 
       <div className="search-container">
-      
         <input
           type="text"
           placeholder="Search games..."
           value={searchTerm}
           onChange={(e) => {
-            navigate('/searching-page',{state:searchTerm})
-            setSearchTerm(e.target.value)
+            setSearchTerm(e.target.value);
+            navigate("/searching-page", { state: e.target.value });
           }}
           className="search-input"
         />
-        <Search className="search-icon" color="white" size={"32px"}/>
+        <Search className="search-icon" color="white" size={"32px"} />
       </div>
 
       <div className="library-section">
-        <Link to="/favourite" className="library-btn">
-          <IoMdBookmark size={"30px"} color="white"/>
-        </Link>
+      <IoMdBookmark size={"30px"} color="white" onClick={handleLibaray}/>
+
+        {user ? (
+          <UserButton />
+        ) : (
+          <SignInButton mode="modal">
+            <button className="login-btn">Create Account</button>
+          </SignInButton>
+        )}
       </div>
     </header>
   );

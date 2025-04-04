@@ -1,39 +1,52 @@
-.main-container-home {
+/* .main-container-home {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
-  background-color: aquamarine;
-  gap: 15px;
-}
+  gap: 10px;
+} */
 
-.game-container .equal {
-  padding: 10px;
-
-}
 
 .game-container {
   display: flex;
   flex-direction: column;
   height: 100%;
-  width: 85%;
+  width: 100%;
 }
 
 .pagination {
   margin-top: 5%;
-  /* padding: 10px; */
   width: 100%;
   display: flex;
   position: relative;
   bottom: 0px;
 }
 
-@media (max-width: 700px) {
-  /* .game-container {
-    width: 100%;
-  }
 
-  .game-container .equal{
-    display: block;
-  } */
+.main-container-home {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Default: 4 cards */
+  gap: 20px;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  justify-items: center;
+}
+
+/* For tablets - 768px and below: show 3 cards */
+@media (max-width: 868px) {
+  .main-container-home {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 700px) {
+  .main-container-home {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* For small screens - 500px and below: show 1 card */
+@media (max-width: 500px) {
+  .main-container-home {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
