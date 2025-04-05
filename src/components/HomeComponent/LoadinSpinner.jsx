@@ -1,5 +1,5 @@
-import '../style/loadin.css'
 import React from 'react';
+import '../style/loadin-spinner.css'
 
 export const LoadingSpinner = () => {
   return (
@@ -10,5 +10,3 @@ export const LoadingSpinner = () => {
 };
 
 export default LoadingSpinner;
-
-  

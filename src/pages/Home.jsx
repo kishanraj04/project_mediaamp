@@ -11,7 +11,7 @@ import { AppContext } from "../context/AppContext";
 import LoadingSpinner from "../components/HomeComponent/LoadinSpinner";
 function Home() {
   const {isVisible,setIsVisible} = useContext(AppContext)
-  const {isLoading,setIsLoading} = useContext(AppContext)
+   const {isLoading,setIsLoading} = useContext(AppContext)
   const gameData = useSelector((state) => state?.game?.allgames);
   const toggle = useSelector((state) => state?.localVariable?.sideToggle);
   

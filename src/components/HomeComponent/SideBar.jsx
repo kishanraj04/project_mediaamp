@@ -16,6 +16,7 @@ const SideBar = () => {
   });
 
   const { isVisible, setIsVisible } = useContext(AppContext);
+  console.log(isVisible);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
