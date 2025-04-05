@@ -29,7 +29,6 @@ const DetailedPage = () => {
     <>
       <div className="detailed-container">
         <div className="image-content-container">
-          {/* image */}
           <div className="game-image-container">
             <img
               src={newImage}
@@ -50,7 +49,6 @@ const DetailedPage = () => {
             </div>
           </div>
 
-          {/* content */}
           <div className="content-2">
             <h1 className="text-3xl font-bold mb-4">{game?.name}</h1>
             <h3>Rating Count : {game?.ratings_count}</h3>

@@ -7,7 +7,7 @@ export const AppContextProvider = ({ children }) => {
   const { getToken } = useAuth();
   const [isVisible, setIsVisible] = useState(false);
   const [authToken, setAuthToken] = useState(null);
-
+  const [isLoading,setIsLoading] = useState(false)
   useEffect(() => {
     const fetchToken = async () => {
       const token = await getToken();
@@ -23,5 +23,5 @@ export const AppContextProvider = ({ children }) => {
     authToken,  
   };
 
-  return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
+  return <AppContext.Provider value={{value,isLoading,setIsLoading}}>{children}</AppContext.Provider>;
 };

@@ -8,15 +8,20 @@ import { RxCross1 } from "react-icons/rx";
 import PaginationComp from "../components/pagination/Pagination";
 import { setSideBarToggel } from "../store/localVariables";
 import { AppContext } from "../context/AppContext";
+import LoadingSpinner from "../components/HomeComponent/LoadinSpinner";
 function Home() {
   const {isVisible,setIsVisible} = useContext(AppContext)
-  
+  const {isLoading,setIsLoading} = useContext(AppContext)
   const gameData = useSelector((state) => state?.game?.allgames);
   const toggle = useSelector((state) => state?.localVariable?.sideToggle);
   
   const dispatch = useDispatch()
   const handleToggele = ()=>{
    dispatch(setSideBarToggel())
+  }
+
+  if(isLoading){
+    return <LoadingSpinner/>
   }
 
   return (
