@@ -11,21 +11,24 @@ import { toast } from "react-toastify";
 
 const GameCard = ({ game }) => {
   const {authToken} = useContext(AppContext)
+  console.log("at ",authToken);
   const dispatch = useDispatch();
   const gameData = useSelector((state) => state?.favourite?.favouriteGame);
   const handleAddFavourite = async () => {
     
     if(!authToken)
     {
-      toast.error("please login")
+      toast.error("please login",{autoClose:200})
       return
     }
     
     dispatch(addToFavourite({ favouriteGame: game }));
+    toast.success("added to bookmark",{autoClose:200})
   };
 
   const hendleRemoveToFavourite = () => {
     dispatch(removeFromFavourite({ id: game?.id }));
+    toast.success("remove from bookmark",{autoClose:200})
   };
 
   return (

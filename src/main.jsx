@@ -19,7 +19,7 @@ function AppWrapper() {
 
   useEffect(() => {
     if (authToken) {
-      toast.success("Login successful!");
+      toast.success("Login successful!",{autoClose:100});
     }
   }, [authToken]);
 

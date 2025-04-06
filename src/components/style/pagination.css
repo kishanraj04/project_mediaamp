@@ -23,14 +23,12 @@
   padding: 0 !important;
 }
 
-/* Swiper customization */
 .mySwiper {
   padding: 20px 10px;
   margin-left: 60%;
   max-width: 60%;
 }
 
-/* Responsive for tablets */
 @media (max-width: 768px) {
   .mySwiper {
     padding: 16px 0;
@@ -50,7 +48,6 @@
   
 }
 
-/* Responsive for small phones */
 @media (max-width: 480px) {
   .pagination-button {
     padding: 5px 8px;

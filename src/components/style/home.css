@@ -1,17 +1,11 @@
-/* .main-container-home {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-} */
-
-
 .game-container {
   display: flex;
   flex-direction: column;
   height: 100%;
   width: 100%;
 }
+
+
 
 .pagination {
   margin-top: 5%;
@@ -24,7 +18,7 @@
 
 .main-container-home {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Default: 4 cards */
+  grid-template-columns: repeat(4, 1fr); 
   gap: 20px;
   width: 100%;
   padding: 20px;
@@ -32,7 +26,6 @@
   justify-items: center;
 }
 
-/* For tablets - 768px and below: show 3 cards */
 @media (max-width: 868px) {
   .main-container-home {
     grid-template-columns: repeat(3, 1fr);
@@ -44,8 +37,15 @@
   }
 }
 
-/* For small screens - 500px and below: show 1 card */
-@media (max-width: 500px) {
+
+
+@media (max-width: 550px) {
+  .main-container-home {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 350px) {
   .main-container-home {
     grid-template-columns: repeat(1, 1fr);
   }

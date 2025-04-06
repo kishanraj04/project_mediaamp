@@ -23,5 +23,5 @@ export const AppContextProvider = ({ children }) => {
     authToken,  
   };
 
-  return <AppContext.Provider value={{isVisible, setIsVisible,value,isLoading,setIsLoading}}>{children}</AppContext.Provider>;
+  return <AppContext.Provider value={{isVisible, setIsVisible,value,isLoading,setIsLoading,authToken}}>{children}</AppContext.Provider>;
 };

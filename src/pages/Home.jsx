@@ -9,6 +9,7 @@ import PaginationComp from "../components/pagination/Pagination";
 import { setSideBarToggel } from "../store/localVariables";
 import { AppContext } from "../context/AppContext";
 import LoadingSpinner from "../components/HomeComponent/LoadinSpinner";
+import Banner from "../components/HomeComponent/Banner";
 function Home() {
   const {isVisible,setIsVisible} = useContext(AppContext)
    const {isLoading,setIsLoading} = useContext(AppContext)
@@ -30,6 +31,9 @@ function Home() {
         <h1>....loading</h1>
       ) : (
         <div className="game-container"  style={{ width: isVisible ? "100%" : "100%" }}>
+          <div className="banner">
+          <Banner/>
+          </div>
           <div className="main-container-home">
             {gameData && gameData.map((item) => <GameCard game={item} />)}
           </div>

@@ -12,6 +12,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { AppContext } from "./context/AppContext.jsx";
 import "../src/components/style/footer.css";
 import Footer from "./components/HomeComponent/Footer.jsx";
+import { serBannerImage } from "./store/banner.js";
 function App() {
   const [count, setCount] = useState(0);
   const dispatch = useDispatch();
@@ -28,6 +29,7 @@ function App() {
       const resp = await apiCalling(options);
       dispatch(setTotalGames({ totalGames: resp?.data?.count }));
       dispatch(setAllGames({ data: resp?.data?.results }));
+      dispatch(serBannerImage({image:resp?.data?.results}))
       setIsLoading(false)
     })();
   }, []);
